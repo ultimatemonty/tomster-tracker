@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component } = Ember;
+<%= destructures %>
 
 const <%= classifiedModuleName %>Component = Component.extend({
 
