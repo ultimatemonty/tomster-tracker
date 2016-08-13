@@ -20,13 +20,27 @@ module.exports = {
   ],
 
   locals: function(options) {
+    // for demo purposes
+    console.log('locals:', options.entity.options);
+    return this._parseOptions(options);
+  },
+
+  /* jshint unused:false */
+  fileMapTokens: function(options) {
+    // for demo purposes
+    console.log('fileMapTokens:', options);
+    return {
+      __componentname__: function(options) {
+        return options.dasherizedModuleName + '-route';
+      }
+    };
+  },
+
+  _parseOptions: function(options) {
     // reference to our options
     var entityOptions = options.entity.options;
     var taskOptions = options.taskOptions;
     var includes = [];
-
-    // for demo purposes
-    console.log('locals:', entityOptions);
 
     // Loop through each key in the entityOptions hash
     // and add a key/value pair to the includes array
@@ -75,18 +89,7 @@ module.exports = {
     // default EOL character
     return {
       destructures: destructures.join(EOL),
-      modelKey: taskOptions.modelKey || 'model'
-    };
-  },
-
-  /* jshint unused:false */
-  fileMapTokens: function(options) {
-    // for demo purposes
-    console.log('fileMapTokens:', options);
-    return {
-      __componentname__: function(options) {
-        return options.dasherizedModuleName + '-route';
-      }
+      modelKey: taskOptions.modelKey
     };
   }
 };
