@@ -10,13 +10,37 @@ module.exports = {
     'include:value'
   ],
 
+  availableOptions: [
+    {
+      name: 'model-key',
+      type: String,
+      default: 'model',
+      key: 'modelKey'
+    }
+  ],
+
   locals: function(options) {
+    // for demo purposes
+    console.log('locals:', options.entity.options);
+    return this._parseOptions(options);
+  },
+
+  /* jshint unused:false */
+  fileMapTokens: function(options) {
+    // for demo purposes
+    console.log('fileMapTokens:', options);
+    return {
+      __componentname__: function(options) {
+        return options.dasherizedModuleName + '-route';
+      }
+    };
+  },
+
+  _parseOptions: function(options) {
     // reference to our options
     var entityOptions = options.entity.options;
+    var taskOptions = options.taskOptions;
     var includes = [];
-
-    // for demo purposes
-    console.log('locals:', options.entity);
 
     // Loop through each key in the entityOptions hash
     // and add a key/value pair to the includes array
@@ -27,8 +51,10 @@ module.exports = {
     //
     // includes['computed'] = ['alias','notEmpty']
     // includes['inject'] = ['service']
+    var destructuredValues;
     for (var name in entityOptions) {
-      includes[name] = entityOptions[name].split(',');
+      destructuredValues = entityOptions[name] === '' ? null : entityOptions[name].split(',');
+      includes[name] = destructuredValues;
     }
 
     // Add a default Component export to the array as another top-level thing
@@ -50,9 +76,11 @@ module.exports = {
     // in the above example this would result in
     // `const { alias } = computed`;
     // `const { service } = inject`;
+    var values;
     emberKeys.forEach(function(key) {
-      if (includes[key]) {
-        destructures.push('const { ' + includes[key].join(', ') + ' } = ' + key + ';');
+      values = includes[key];
+      if (values) {
+        destructures.push('const { ' + values.join(', ') + ' } = ' + key + ';');
       }
     });
 
@@ -60,18 +88,8 @@ module.exports = {
     // here we're just return the array as a string joined by the operating systems
     // default EOL character
     return {
-      destructures: destructures.join(EOL)
-    };
-  },
-
-  /* jshint unused:false */
-  fileMapTokens: function(options) {
-    // for demo purposes
-    console.log('fileMapTokens:', options);
-    return {
-      __componentname__: function(options) {
-        return options.dasherizedModuleName + '-route';
-      }
+      destructures: destructures.join(EOL),
+      modelKey: taskOptions.modelKey
     };
   }
 };

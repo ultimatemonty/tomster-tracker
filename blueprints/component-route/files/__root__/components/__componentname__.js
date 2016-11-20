@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 <%= destructures %>
 
-const <%= classifiedModuleName %>Component = Component.extend({
+const <%= classifiedModuleName %>RouteComponent = Component.extend({
+<%= '  ' + modelKey + ': null' %>
 });
 
-export default <%= classifiedModuleName %>Component;
+export default <%= classifiedModuleName %>RouteComponent;
