@@ -1,10 +1,10 @@
 import Model from 'ember-data/model';
-import attr from 'ember-data/attr';
+import { attr } from '@ember-decorators/data';
 // import { belongsTo, hasMany } from 'ember-data/relationships';
 
-export default Model.extend({
-  name: attr('string'),
-  type: attr('string'),
-  birthday: attr('string'),
-  image: attr('string')
-});
+export default class Tomster extends Model {
+  @attr('string') name;
+  @attr('string') type;
+  @attr('string') birthday;
+  @attr('string') image;
+}

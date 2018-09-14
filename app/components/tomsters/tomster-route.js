@@ -1,9 +1,3 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-const { Component } = Ember;
-
-const TomstersTomsterComponent = Component.extend({
-
-});
-
-export default TomstersTomsterComponent;
+export default class Tomster extends Component {}

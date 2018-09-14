@@ -1,11 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-const { Route } = Ember;
-
-const TomstersTomsterRoute = Route.extend({
+export default class TomsterRoute extends Route {
   model(params) {
     return this.store.findRecord('tomster', params.id);
   }
-});
-
-export default TomstersTomsterRoute;
+}
