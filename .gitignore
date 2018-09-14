@@ -13,16 +13,11 @@
 /connect.lock
 /coverage/
 /libpeerconnection.log
-<<<<<<< HEAD
-npm-debug.log
-testem.log
-
 # vscode
 /.vscode
 /.vscodeignore
 jsconfig.json
 /typings
-=======
 /npm-debug.log*
 /testem.log
 /yarn-error.log
@@ -31,4 +26,3 @@ jsconfig.json
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
->>>>>>> 22d2636... message

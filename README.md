@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Tomster-tracker
-=======
 # my-app
->>>>>>> 22d2636... message
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.

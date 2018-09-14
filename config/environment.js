@@ -1,17 +1,10 @@
 'use strict';
 
 module.exports = function(environment) {
-<<<<<<< HEAD
-  var ENV = {
-    modulePrefix: 'tomster-tracker',
-    environment: environment,
-    baseURL: '/',
-=======
   let ENV = {
     modulePrefix: 'my-app',
     environment,
     rootURL: '/',
->>>>>>> 22d2636... message
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
