@@ -1,5 +1,5 @@
 import Model from 'ember-data/model';
-import attr from '@ember-decorators/attr';
+import { attr } from '@ember-decorators/data';
 // import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default class Tomster extends Model {
