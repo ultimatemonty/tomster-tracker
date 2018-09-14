@@ -1,13 +1,13 @@
 <div class="col-md-3">
   <div class="list-group">
-	{{#each tomsters as |tomster|}}
-		{{#link-to 'tomsters.tomster' tomster.id classNames="list-group-item"}}
-			<strong>{{tomster.name}}</strong><br />
-			<em>Born {{tomster.birthday}}</em>
-		{{/link-to}}
-	{{/each}}
+    {{#each tomsters as |tomster|}}
+      {{#link-to "tomsters.tomster" tomster.id classNames="list-group-item"}}
+        <strong>{{tomster.name}}</strong><br>
+        <em>Born {{tomster.birthday}}</em>
+      {{/link-to}}
+    {{/each}}
   </div>
 </div>
 <div class="col-md-9">
-  {{outlet}}
+  {{yield}}
 </div>

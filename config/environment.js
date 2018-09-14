@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'my-app',
+    modulePrefix: 'tomster-tracker',
     environment,
     rootURL: '/',
     locationType: 'auto',
